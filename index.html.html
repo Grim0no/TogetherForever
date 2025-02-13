@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Together Forever</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="password-page">
+    <div class="container">
+        <img src="assets/mirror.png" alt="Mirror" class="mirror">
+        <h1>Mirror, Mirror on the wall,<br>Who’s the fairest of them all?</h1>
+       <div class="spellbook">
+    <textarea id="passwordInput" placeholder="|" rows="1"></textarea>
+    <button class="spellbook-btn" onclick="checkPassword()">Submit</button>
+    <div class="blood-drip"></div> <!-- This adds the blood-drip effect -->
+</div>
+
+
+    </div>
+ <script>
+    function checkPassword() {
+        var spellbook = document.querySelector(".spellbook");
+        var password = document.getElementById("passwordInput").value;
+
+        if (password.toLowerCase().trim() === "a'lexsus") {
+            spellbook.classList.add("flip"); // Flip animation
+            setTimeout(() => {
+                window.location.href = "home.html"; // Redirect after animation
+            }, 1000);
+        } else {
+            alert("Oh my sweetest love, wrong answer...");
+        }
+    }
+</script>
+
+
+<div class="blood-drip"></div>
+
+
+<div class="fog-container">
+    <div class="fog-layer"></div>
+    <div class="fog-layer fog-layer-2"></div>
+</div>
+</body>
+</html>
