@@ -18,18 +18,25 @@
 
 
     </div>
- <script>
+<script>
     function checkPassword() {
         var spellbook = document.querySelector(".spellbook");
-        var password = document.getElementById("passwordInput").value;
+        var passwordInput = document.getElementById("passwordInput");
+        var password = passwordInput.value.trim().toLowerCase();
 
-        if (password.toLowerCase().trim() === "a'lexsus") {
+        // Fix mobile issues: remove special characters, fix extra spaces
+        password = password.replace(/\s+/g, ""); // Remove spaces
+        password = password.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove accents
+
+        // Correct password check
+        if (password === "alexus") {  // Make sure the password is lowercase here
             spellbook.classList.add("flip"); // Flip animation
             setTimeout(() => {
                 window.location.href = "home.html"; // Redirect after animation
             }, 1000);
         } else {
             alert("Oh my sweetest love, wrong answer...");
+            passwordInput.value = ""; // Clear input after incorrect attempt
         }
     }
 </script>
